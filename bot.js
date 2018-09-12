@@ -4495,5 +4495,12 @@ if(!message.channel.guild) return;
    })
 
 } });
+client.on('guildCreate', guild => {
+    var embed = new Discord.RichEmbed()
+    .setColor(0x5500ff)
+    .setDescription(`**شكرا ${message.guild.owner} علي ثقتك بفريق TurboBot !
+    Thanks ${message.guild.owner} for trust TurboBot Team! **`)
+        guild.owner.send(embed)
+  });
 
 client.login(process.env.BOT_TOKEN);
