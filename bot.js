@@ -3208,7 +3208,7 @@ client.on('guildMemberAdd', member => {
                   .addField("Name:",`<@` + `${member.id}` + `>`, true)
 
                                      .addField(' Server', `${member.guild.name}`,true)
-.setimage("https://cdn.discordapp.com/attachments/470319916537348099/488176391288913920/Sans-Simple-Green.gif")
+.setImage("https://cdn.discordapp.com/attachments/470319916537348099/488176391288913920/Sans-Simple-Green.gif")
 .setFooter(member.user.username,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
     .setTimestamp()
 
