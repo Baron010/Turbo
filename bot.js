@@ -273,27 +273,72 @@ client.on('message', function(msg) {
       msg.channel.send({embed:embed})
     }
 });
- client.on('message', message => {
-    if (message.content.startsWith(prefix + "bot")) {
-    message.channel.send({
-        embed: new Discord.RichEmbed()
-            .setAuthor(client.user.username,client.user.avatarURL)
-            .setThumbnail(client.user.avatarURL)
-            .setColor('RANDOM')
-            .setTitle('``INFO Turbo Bot`` ')
-            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
-            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
-            .addField('``servers``', [client.guilds.size], true)
-            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
-            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
-            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
-            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
-			      .addField('``My Prefix``' , `[ ${prefix} ]` , true)
-			      .addField('``My Language``' , `[ Java Script ]` , true)
-			      .setFooter('By | Baron')
-    })
-}
-});
+client.on("message", message=>{
+    if(message.author.bot) return;
+    if(!message.channel.guild) return;
+    if(message.content.startsWith(prefix+"botinfo")) {
+        let uptime = client.uptime;
+
+        let days = 0;
+        let hours = 0;
+        let minutes = 0;
+        let seconds = 0;
+        let notCompleted = true;
+    
+        while (notCompleted) {
+    
+            if (uptime >= 8.64e+7) {
+    
+                days++;
+                uptime -= 8.64e+7;
+    
+            } else if (uptime >= 3.6e+6) {
+    
+                hours++;
+                uptime -= 3.6e+6;
+    
+            } else if (uptime >= 60000) {
+    
+                minutes++;
+                uptime -= 60000;
+    
+            } else if (uptime >= 1000) {
+                seconds++;
+                uptime -= 1000;
+    
+            }
+    
+            if (uptime < 1000)  notCompleted = false;
+    
+        }
+        var ping = `${Date.now() - message.createdTimestamp}`
+        var api = `${Math.round(client.ping)}`
+        let ramUsage = (process.memoryUsage().rss / 1048576).toFixed();
+
+    let embed = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setThumbnail(client.user.avatarURL)
+    .setAuthor(client.user.tag, client.user.avatarURL)
+    .setFooter(message.author.tag, message.author.avatarURL)
+    .setTitle("**TurboBot Information:**")
+    .setDescription("- **Bot Name** :`" + `${client.user.tag}` + "`\n" +  "- **Bot ID** :`" + `${client.user.id}` + "`\n" + 
+    "- **Bot Prefix** :`" + `${prefix}` + "`\n" + "- **Ping** :`" + `${ping}` + "`\n" + "- **Uptime** :`" + `${days} days, ${hours} hrs, ${minutes} , ${seconds} sec` + "`\n" + 
+    "- **Creator** :`" + `! Baro𝐍#5969` + "`\n" + "\n" + "```md\n[Servers](Information)```" + "\n" + "- **Guilds** :`" + `${client.guilds.size}` + "`\n" + 
+    "- **Members** :`" + `${client.users.size}` + "`\n" + "- **Channels** :`" + `${client.channels.size}` + "`\n" + 
+    "\n" + "```tex\n$ Developer Information```" + "\n" + "- **NodeJs** :`" + `${process.version}` + "`\n" + "- **DiscordJs** :`" + `${Discord.version}` + "`\n" + 
+    "- **Arch** :`" + `${process.arch}` + "`\n" + "- **Platform** :`" + `${process.platform}` + "`\n" + "\n" + "```cs\n# Host Information```" + "\n" + 
+    "- **UseHeap** :`" + `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100} MB` + "`\n" + 
+    "- **Heap** :`" + `${Math.round(process.memoryUsage().heapTotal / 1024 / 1024 * 100) / 100} MB` + "`\n" + 
+    "- **Ram** :`" + `${ramUsage} MB` + "`\n" + "- **Rss** :`" + `${Math.round(process.memoryUsage().rss / 1024 / 1024 * 100) / 100} MB` + "`\n")
+
+
+
+    message.channel.send(embed)
+
+
+    
+    }
+    });
  client.on('message', message => {
               if (!message.channel.guild) return;
       if(message.content.startsWith(prefix+'count'))
