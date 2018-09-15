@@ -258,6 +258,7 @@ message.channel.send(embed)
 client.on("message", message => {
 if(message.content.startsWith(prefix+"serverinfo")) {
     if(message.author.bot) return;
+    if(!message.channel.guild) return;
     if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.reply("** لا امتلك الصلاحيات الكافيه للوصول لمعلومات السيرفر**");
     if(message.guild.region === "brazil") {
     var br = "Brazil"
@@ -316,6 +317,7 @@ if(message.content.startsWith(prefix+"serverinfo")) {
     "\n" +"```fix\nMore Information```" + "\n" +
     "- **Roles Size** :`" + `${message.guild.roles.size}` + "`\n" +  "- **Emojis Size** :`" + `${message.guild.emojis.size}` + "`\n" + 
     "- **Created At** :`" + `${message.guild.createdAt}` + "`\n" + "- **Verified** :`" + `${message.guild.verified}` + "`\n" +"- **VerificationLevel** :`" + `${message.guild.verificationLevel}` + "`\n")
+    .setFooter(message.author.tag, message.author.avatarURL)
     message.channel.send(embed)
     
 }
