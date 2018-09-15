@@ -75,7 +75,7 @@ https://wonderful-wright-552070.netlify.com/  **
 message.author.send(`
 **Public commands | الأوامر العامة**
 『**!!bots **/لعرض جميع البوتات الي بالسيرفر』
-『**!!server** /يعرض لك معلومات عن السيرفر』
+『**!!serverinfo** /يعرض لك معلومات عن السيرفر』
 『**!!botinfo **/يعرض لك كل معلومات البوت』
 『**!!count **/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات』
 『**!!invites **/ يعرض لك  عدد انفايتاتك بالسيرفر 』
@@ -259,6 +259,7 @@ client.on("message", message => {
 if(message.content.startsWith(prefix+"serverinfo")) {
     if(message.author.bot) return;
     if(!message.channel.guild) return;
+    if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.reply("** لا امتلك الصلاحيات الكافيه للوصول لمعلومات السيرفر**");
     if(message.guild.region === "brazil") {
     var br = "Brazil"
     var flag = ":flag_br:"
@@ -299,7 +300,7 @@ if(message.content.startsWith(prefix+"serverinfo")) {
     var br = "Eu-West"
     var flag = ":flag_eu:"
     } 
-
+    var online = message.guild.members.filter(m=>m.presence.status == 'online').size + message.guild.members.filter(m=>m.presence.status == 'dnd').size +  message.guild.members.filter(m=>m.presence.status == 'idle').size
     let embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setThumbnail(message.guild.iconURL)
@@ -309,7 +310,7 @@ if(message.content.startsWith(prefix+"serverinfo")) {
     "- **Server Region** :" + `${flag}\n` + 
     "- **Server Owner** :" + `${message.guild.owner}` + "\n" + "\n" + "```md\n[Guild](Members)```" + "\n" + 
     "- **Total Bots** :`" + `${message.guild.members.filter(member => member.user.bot).size}` + "`\n" + "- **Total Members** :`" + `${message.guild.memberCount}` + "`\n" +
-    "- **Online Members** :`" + `${message.guild.members.filter(m=>m.presence.status == 'online').size}` + "`\n" + "- **Offline Members** :`" + `${message.guild.members.filter(m=>m.presence.status == 'offline').size}` + "`\n" + 
+    "- **Online Members** :`" + `${online}` + "`\n" + "- **Offline Members** :`" + `${message.guild.members.filter(m=>m.presence.status == 'offline').size}` + "`\n" + 
     "\n" + "```tex\n$ Guild Channels```" + "\n" + 
     "- **Channels Size** :`" + `${message.guild.channels.size}` + "`\n" + "- **Text Channels** :`" + `${message.guild.channels.filter(m => m.type === 'text').size}` + "`\n" + "- **Voice Channels** :`" + `${message.guild.channels.filter(m => m.type === 'voice').size}` + "`\n" +
     "- **Afk Channel** :" + `${message.guild.afkChannel}` + "\n" + "- **Afk Timeout** :`" + `${message.guild.afkTimeout} Second` + "`\n" + "- **System Channel** :" + `${message.guild.systemChannel}` + "\n" +
