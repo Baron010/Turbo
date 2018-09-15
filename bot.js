@@ -255,24 +255,71 @@ message.channel.send(embed)
 
 
 });
-client.on('message', function(msg) {
-    if(msg.content.startsWith (prefix  + 'server')) {
-      let embed = new Discord.RichEmbed()
-      .setColor('RANDOM')
-      .setThumbnail(msg.guild.iconURL)
-      .setTitle(`**Showing Details Of** ${msg.guild.name}`)
-      .addField('`Server Region`',`[${msg.guild.region}]`,true)
-      .addField('`Roles Count`',`[${msg.guild.roles.size}]`,true)
-      .addField('`Members Count`',`[${msg.guild.memberCount}]`,true)
-      .addField('`Online Members`',`[${msg.guild.members.filter(m=>m.presence.status == 'online').size}]`,true)
-      .addField('`Text Channels`',`[${msg.guild.channels.filter(m => m.type === 'text').size}]`,true)
-      .addField('`Voice Channels`',`[${msg.guild.channels.filter(m => m.type === 'voice').size}]`,true)
-      .addField('`Server Owner`',`**${msg.guild.owner}**`,true)
-      .addField('`Server Id`',`**${msg.guild.id}**`,true)
-      .addField('`Server was created in`',msg.guild.createdAt.toLocaleString())
-      msg.channel.send({embed:embed})
-    }
-});
+client.on("message", message => {
+if(message.content.startsWith(prefix+"serverinfo")) {
+    if(message.author.bot) return;
+    if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.reply("** لا امتلك الصلاحيات الكافيه للوصول لمعلومات السيرفر**");
+    if(message.guild.region === "brazil") {
+    var br = "Brazil"
+    var flag = ":flag_br:"
+    } else if(message.guild.region === "eu-central") {
+    var br = "Eu-Central"
+    var flag = ":flag_eu:"
+    } else if(message.guild.region === "hongkong") {
+    var br = "Hongkong"
+    var flag = ":flag_hk:"
+    } else if(message.guild.region === "japan") {
+    var br = "Japan"
+    var flag = ":flag_jp:"
+    } else if(message.guild.region === "russia") {
+    var br = "Russia"
+    var flag = ":flag_ru:"
+    } else if(message.guild.region === "singapore") {
+    var br = "Singapore"
+    var flag = ":flag_sg:"
+    } else if(message.guild.region === "southafrica") {
+    var br = "Southafrica"
+    var flag = ":flag_za:"
+    } else if(message.guild.region === "sydney") {
+    var br = "Sydney"
+    var flag = ":flag_au:"
+    } else if(message.guild.region === "us-central") {
+    var br = "Us-Cetral"
+    var flag = ":flag_us:"
+    } else if(message.guild.region === "us-east") {
+    var br = "Us-East"
+    var flag = ":flag_us:"
+    } else if(message.guild.region === "us-south") {
+    var br = "Us-South"
+    var flag = ":flag_us:"
+    } else if(message.guild.region === "us-west") {
+        var br = "Us-West"
+        var flag = ":flag_us:"
+    } else if(message.guild.region === "eu-west") {
+    var br = "Eu-West"
+    var flag = ":flag_eu:"
+    } 
+
+    let embed = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setThumbnail(message.guild.iconURL)
+    .setAuthor(message.guild.name, message.guild.iconURL)
+    .setTitle(`**${message.guild.name} Information:**`)
+    .setDescription("- **Server Name** :`" + `${message.guild.name}` + "`\n" + "- **Server ID** :`" + `${message.guild.id}` + "`\n" + 
+    "- **Server Region** :" + `${flag}\n` + 
+    "- **Server Owner** :" + `${message.guild.owner}` + "\n" + "\n" + "```md\n[Guild](Members)```" + "\n" + 
+    "- **Total Bots** :`" + `${message.guild.members.filter(member => member.user.bot).size}` + "`\n" + "- **Total Members** :`" + `${message.guild.memberCount}` + "`\n" +
+    "- **Online Members** :`" + `${message.guild.members.filter(m=>m.presence.status == 'online').size}` + "`\n" + "- **Offline Members** :`" + `${message.guild.members.filter(m=>m.presence.status == 'offline').size}` + "`\n" + 
+    "\n" + "```tex\n$ Guild Channels```" + "\n" + 
+    "- **Channels Size** :`" + `${message.guild.channels.size}` + "`\n" + "- **Text Channels** :`" + `${message.guild.channels.filter(m => m.type === 'text').size}` + "`\n" + "- **Voice Channels** :`" + `${message.guild.channels.filter(m => m.type === 'voice').size}` + "`\n" +
+    "- **Afk Channel** :" + `${message.guild.afkChannel}` + "\n" + "- **Afk Timeout** :`" + `${message.guild.afkTimeout} Second` + "`\n" + "- **System Channel** :" + `${message.guild.systemChannel}` + "\n" +
+    "\n" +"```fix\nMore Information```" + "\n" +
+    "- **Roles Size** :`" + `${message.guild.roles.size}` + "`\n" +  "- **Emojis Size** :`" + `${message.guild.emojis.size}` + "`\n" + 
+    "- **Created At** :`" + `${message.guild.createdAt}` + "`\n" + "- **Verified** :`" + `${message.guild.verified}` + "`\n" +"- **VerificationLevel** :`" + `${message.guild.verificationLevel}` + "`\n")
+    message.channel.send(embed)
+    
+}
+})
 client.on("message", message=>{
     if(message.author.bot) return;
     if(!message.channel.guild) return;
