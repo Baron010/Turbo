@@ -677,55 +677,45 @@ client.on("message", message => {
 
     }
       });
-    client.on('message', message => {
-var args = message.content.split(" ").slice(1);
-if(message.content.startsWith(prefix + 'id')) {
-var year = message.author.createdAt.getFullYear()
-var month = message.author.createdAt.getMonth()
-var day = message.author.createdAt.getDate()
-var men = message.mentions.users.first();
-let args = message.content.split(' ').slice(1).join(' ');
-if (args == '') {
-var z = message.author;
-}else {
-var z = message.mentions.users.first();
-}
 
-let d = z.createdAt;
-let n = d.toLocaleString();
-let x;
-let y;
-
-if (z.presence.game !== null) {
-y = `${z.presence.game.name}`;
+let uinfo = message.mentions.users.first() || message.author
+if(uinfo.bot) {
+var type = "BOT"
+var emoji = ":robot:"
 } else {
-y = "No Playing...";
+var type = "Human"
+var emoji = ":man_in_tuxedo:"
 }
-if (z.bot) {
-var w = 'BOT';
-}else {
-var w = 'MEMBER';
+if (uinfo.presence.game !== null) {
+    playing = `${uinfo.presence.game.name}`;
+    } else {
+    playing = "Not Playing";
+    }
+if(uinfo.presence.status == "online") {
+var hello = "Online | موجوود";
+} else {
+if(uinfo.presence.status == "dnd") {
+var hello = "Do Not Disturb | مرووق";
+} else {
+if(uinfo.presence.status == "idle") {
+var hello = "Idle | ناايم";
+} else {
+if(uinfo.presence.status == "offline") {
+var hello = "Invisible | الـله يرحمه";
+}}}
+let embed =new Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(uinfo.username, uinfo.avatarURL)
+.setThumbnail(uinfo.avatarURL)
+.setTitle(`**${uinfo.username} Information:**`)
+.setDescription("- **UserName** :" + `<@${uinfo.id}>` + "\n" + "- **UserID** :`" + `${uinfo.id}` + "`\n" + "- **Discrim** :`" + `${uinfo.discriminator}` + "`\n" +
+"- **Account Type** :" + `${emoji}` + "`" + `${type}` + "`\n" + "- **Playing** :`" + `${playing}` + "`\n" + "- **Status** :`" + `${hello}` + "`\n" + 
+"- **CreatedAt** :`" + `${moment(uinfo.createdTimestamp).format('YYYY/M/D HH:mm:ss')}` + "`\n" + "- **Joined Server** :`" + message.member.joinedAt.toLocaleString() + "`\n" + 
+"\n" + "```md\n[More](Information)```" + "\n" + "- **Last Message** :`" + `${message.author.lastMessage}` + "`\n" + "- **Last Message ID** :`" + `${message.author.lastMessage.id}` + "`\n")
+message.channel.send(embed)
 }
-let embed = new Discord.RichEmbed()
-.setColor('RANDOM')
-.setTitle(`**INFO** ${z.username}`)
-.addField('`Your Name`',`**<@` + `${z.id}` + `>**`, true)
-.addField('`ID`', "**"+ `${z.id}` +"**",true)
-.addField('`Status`','**'+y+'**' , true)
-.addField('`Acount Type`',"**"+ w + "**",true)
-.addField('`Your Tag`',"**#" +  `${z.discriminator}**`,true)
-.addField('`Your account created in`' ,year + "-"+ month +"-"+ day)
-.addField("`Entered the server in`", message.member.joinedAt.toLocaleString())
-.addField("`Last Message`", message.author.lastMessage)
-
-.setThumbnail(`${z.avatarURL}`)
-.setFooter(message.author.username, message.author.avatarURL)
-
-message.channel.send({embed});
-    if (!message) return message.reply('**ضع المينشان بشكل صحيح  ❌ **')
-
 }
-});
+})
 client.on('message', message => {
     if (message.content.startsWith(prefix+"bans")) {
         message.guild.fetchBans()
