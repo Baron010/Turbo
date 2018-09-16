@@ -677,7 +677,10 @@ client.on("message", message => {
 
     }
       });
-
+client.on('message', message=>{
+if(message.content.startsWith(prefix+"userinfo")) {
+if(!message.channel.guild) return;
+if(message.author.bot) return;
 let uinfo = message.mentions.users.first() || message.author
 if(uinfo.bot) {
 var type = "BOT"
