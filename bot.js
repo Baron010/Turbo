@@ -259,7 +259,6 @@ client.on("message", message => {
 if(message.content.startsWith(prefix+"serverinfo")) {
     if(message.author.bot) return;
     if(!message.channel.guild) return;
-    if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.reply("** لا امتلك الصلاحيات الكافيه للوصول لمعلومات السيرفر**");
     if(message.guild.region === "brazil") {
     var br = "Brazil"
     var flag = ":flag_br:"
