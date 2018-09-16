@@ -3618,7 +3618,7 @@ member.addRole(KinG66S[member.user.id].roles.shift());
 }
 });
  client.on('message', message => {
-    if(message.content.startsWith (prefix  + 'user')) {
+    if(message.content.startsWith(prefix  + 'id')) {
      moment.locale('ar-ly');
 var args = message.content.split(" ").slice(1);
 let user = message.mentions.users.first();
