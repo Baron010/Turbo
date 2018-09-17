@@ -682,46 +682,48 @@ client.on("message", message => {
     }
       });
 client.on('message', message=>{
-if(message.content.startsWith(prefix+"userinfo")) {
-if(!message.channel.guild) return;
-let uinfo = message.author || message.mentions.users.first();
+    if(message.content.startsWith(prefix+"userinfo")) {
+    if(!message.channel.guild) return;
+    let uinfo = message.author || message.mentions.users.first();    
 if(uinfo.bot) {
-var type = "BOT"
-var emoji = ":robot:"
-} else {
-var type = "Human"
-var emoji = ":man_in_tuxedo:"
-}
-if (uinfo.presence.game !== null) {
+    var type = "BOT"
+    var emoji = ":robot:"
+    } else {
+    var type = "Human"
+    var emoji = ":man_in_tuxedo:"
+    }
+    if (uinfo.presence.game !== null) {
     playing = `${uinfo.presence.game.name}`;
     } else {
-    playing = "Not Playing";
+     playing = "Not Playing";
+    };
+    if(uinfo.presence.status == "online") {
+    var hello = "Online | موجوود";
+    } else {
+    if(uinfo.presence.status == "online") {
+    var hello = "Online | موجوود";
+    } else {
+    if(uinfo.presence.status == "dnd") {
+    var hello = "Do Not Disturb | مرووق";
+    } else {
+    if(uinfo.presence.status == "idle") {
+    var hello = "Idle | ناايم";
+    } else {
+    if(uinfo.presence.status == "offline") {
+    var hello = "Invisible | الـله يرحمه";
+    }}}}}
+    let embed =new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setAuthor(uinfo.username, uinfo.avatarURL)
+    .setThumbnail(uinfo.avatarURL)
+    .setTitle(`**${uinfo.username} Information:**`)
+    .setDescription("- **UserName** :" + `<@${uinfo.id}>` + "\n" + "- **UserID** :`" + `${uinfo.id}` + "`\n" + "- **Discrim** :`" + `${uinfo.discriminator}` + "`\n" +
+    "- **Account Type** :" + `${emoji}` + "`" + `${type}` + "`\n" + "- **Playing** :`" + `${playing}` + "`\n" + "- **Status** :`" + `${hello}` + "`\n" + 
+    "- **CreatedAt** :`" + `${moment(uinfo.createdTimestamp).format('YYYY/M/D HH:mm:ss')}` + "`\n" + "- **Joined Server** :`" + message.member.joinedAt.toLocaleString() + "`\n" + 
+    "\n" + "```md\n[More](Information)```" + "\n" + "- **Last Message** :`" + `${message.author.lastMessage}` + "`\n" + "- **Last Message ID** :`" + `${message.author.lastMessage.id}` + "`\n")
+    message.channel.send(embed)
     }
-if(uinfo.presence.status == "online") {
-var hello = "Online | موجوود";
-} else {
-if(uinfo.presence.status == "dnd") {
-var hello = "Do Not Disturb | مرووق";
-} else {
-if(uinfo.presence.status == "idle") {
-var hello = "Idle | ناايم";
-} else {
-if(uinfo.presence.status == "offline") {
-var hello = "Invisible | الـله يرحمه";
-}}}
-let embed =new Discord.RichEmbed()
-.setColor("RANDOM")
-.setAuthor(uinfo.username, uinfo.avatarURL)
-.setThumbnail(uinfo.avatarURL)
-.setTitle(`**${uinfo.username} Information:**`)
-.setDescription("- **UserName** :" + `<@${uinfo.id}>` + "\n" + "- **UserID** :`" + `${uinfo.id}` + "`\n" + "- **Discrim** :`" + `${uinfo.discriminator}` + "`\n" +
-"- **Account Type** :" + `${emoji}` + "`" + `${type}` + "`\n" + "- **Playing** :`" + `${playing}` + "`\n" + "- **Status** :`" + `${hello}` + "`\n" + 
-"- **CreatedAt** :`" + `${moment(uinfo.createdTimestamp).format('YYYY/M/D HH:mm:ss')}` + "`\n" + "- **Joined Server** :`" + message.member.joinedAt.toLocaleString() + "`\n" + 
-"\n" + "```md\n[More](Information)```" + "\n" + "- **Last Message** :`" + `${message.author.lastMessage}` + "`\n" + "- **Last Message ID** :`" + `${message.author.lastMessage.id}` + "`\n")
-message.channel.send(embed)
-}
-}
-})
+    });
 client.on('message', message => {
     if (message.content.startsWith(prefix+"bans")) {
         if(!message.channel.guild) return;
