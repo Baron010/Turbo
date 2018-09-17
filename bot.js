@@ -3643,7 +3643,7 @@ possibleInvites.push([inviteCount, exec]);
 });
  client.on('message', async message => {
             if(message.content.includes('discord.gg')){
-                if(message.member.hasPermission("MANAGE_GUILD")) return;
+                if(message.author.hasPermission("MANAGE_GUILD")) return;
         if(!message.channel.guild) return;
         message.delete()
           var command = message.content.split(" ")[0];
