@@ -70,7 +70,7 @@ client.on("message", message=>{
 **
 TurboBot. a multi purpose bot developed by ! Baro𝐍#5969.
 To see all the bot commands check our website | لرؤية جميع اوامر البوت الرجاء التوجه الى موقعنا:
-https://wonderful-wright-552070.netlify.com/**
+ https://stoic-lovelace-e66071.netlify.com/ **
 .`)
 message.author.send(`
 **Public commands | الأوامر العامة**
