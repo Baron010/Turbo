@@ -684,7 +684,7 @@ client.on("message", message => {
 client.on('message', message=>{
 if(message.content.startsWith(prefix+"userinfo")) {
 if(!message.channel.guild) return;
-let uinfo = message.mentions.users.first() || message.author
+let uinfo = message.author || message.mentions.users.first();
 if(uinfo.bot) {
 var type = "BOT"
 var emoji = ":robot:"
