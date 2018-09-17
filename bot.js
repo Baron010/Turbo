@@ -4170,7 +4170,9 @@ message.guild.channels.find('name', 'suggestions').send(embed);
 }
 });
 client.on('message', message=>{
+	let sug = message.guild.channels.find("name", "suggestions")
     if(message.content.startsWith(prefix+"setsug")) {
+	    if(sug) return message.channel.send("**الروم موجودة بالفعل**");
         if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
         message.guild.createChannel("suggestions", "text").then(c =>{
             c.overwritePermissions(message.guild.id, {
@@ -4205,7 +4207,9 @@ client.on('message', message=>{
         }
         });
         client.on('message', message=>{
+		let reports = message.guild.channels.find("name", "reports")
         if(message.content.startsWith(prefix+"setreport")) {
+	    if(reports) return message.channel.send("**الروم موجودة بالفعل**");
             if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
             message.guild.createChannel("reports", "text").then(c =>{
                 c.overwritePermissions(message.guild.id, {
@@ -4294,8 +4298,10 @@ client.on('message', message=>{
 }
         });
         client.on('message', message=>{
+	    let submissions = client.channels.find("name", "التقديمات");
             if(message.content.startsWith(prefix+"setsubmissions")) {
                 if(message.author.bot) return;
+		if(submissions) return message.channel.send("**الروم موجودة بالفعل**");
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
                 message.guild.createChannel("التقديمات", "text").then(c =>{
                     c.overwritePermissions(message.guild.id, {
@@ -4346,6 +4352,7 @@ client.on('message', message=>{
             if(message.content.startsWith(prefix+"setac")) {
 		let acRoom = client.channels.find("name", "القبول-الرفض");
                 if(message.author.bot) return;
+		if(acRoom) return message.channel.send("**الروم موجودة بالفعل**");
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
                 message.guild.createChannel("القبول-الرفض", "text").then(c =>{
                     c.overwritePermissions(message.guild.id, {
