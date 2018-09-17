@@ -4178,7 +4178,7 @@ client.on('message', message=>{
 
                   })
         })
-    message.channel.send("✅ تم انشاء روم الاقتراحات بنجاح"
+    message.channel.send("✅ تم انشاء روم الاقتراحات بنجاح")
     }
     });
     client.on('message', message =>{
@@ -4213,7 +4213,7 @@ client.on('message', message=>{
 
                       })
             })
-    message.channel.send("✅ تم انشاء روم البلاغات بنجاح"
+    message.channel.send("✅ تم انشاء روم البلاغات بنجاح")
         }
         })
         client.on("message", message => {
@@ -4303,7 +4303,7 @@ client.on('message', message=>{
 
                           })
                 })
-    message.channel.send("✅ تم انشاء روم التقديمات بنجاح"
+    message.channel.send("✅ تم انشاء روم التقديمات بنجاح")
             }
             })
         client.on('message',async message => {
