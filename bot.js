@@ -4222,11 +4222,10 @@ client.on('message', message=>{
         }
         })
         client.on("message", message => {
-		let channel = message.guild.channels.find("name", "التقديمات")
             if(message.content.startsWith(prefix + "تقديم")) {
-                
 		if(!message.channel.guild) return;
                 if(message.author.bot) return;
+	    let channel = message.guild.channels.find("name", "التقديمات")
             if(!channel) return message.reply("**لانشاء روم التقديمات !!setsubmissions من فضلك اكتب الامر**")
             if(channel) {
             message.channel.send( message.member + ', **:timer:**').then( (m) =>{
