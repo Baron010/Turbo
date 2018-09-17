@@ -4150,8 +4150,8 @@ setInterval(function(){})
 }
 });
 client.on('message', message =>{
-var id = message.author.id;
 if(message.content.startsWith(prefix+"sug")) {
+var id = message.author.id;
 let sug = message.guild.channels.find("name", "suggestions");
 if (!message.channel.guild) return;
 if (message.author.bot) return;
@@ -4170,10 +4170,12 @@ message.guild.channels.find('name', 'suggestions').send(embed);
 }
 });
 client.on('message', message=>{
-	let sug = message.guild.channels.find("name", "suggestions")
+	
     if(message.content.startsWith(prefix+"setsug")) {
-	    if(sug) return message.channel.send("**الروم موجودة بالفعل**");
-        if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
+	 if(!message.channel.guild) return;
+let sug = message.guild.channels.find("name", "suggestions")
+if(sug) return message.channel.send("**الروم موجودة بالفعل**");
+ if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
         message.guild.createChannel("suggestions", "text").then(c =>{
             c.overwritePermissions(message.guild.id, {
                 SEND_MESSAGES: false
@@ -4186,6 +4188,7 @@ client.on('message', message=>{
     client.on('message', message =>{
         var id = message.author.id;
         if(message.content.startsWith(prefix+"report")) {
+		if(!message.channel.guild) return;
                 let report = message.guild.channels.find("name", "reports");
 
         if (!message.channel.guild) return;
@@ -4207,8 +4210,9 @@ client.on('message', message=>{
         }
         });
         client.on('message', message=>{
-		let reports = message.guild.channels.find("name", "reports")
         if(message.content.startsWith(prefix+"setreport")) {
+	let reports = message.guild.channels.find("name", "reports")
+		if(!message.channel.guild) return;
 	    if(reports) return message.channel.send("**الروم موجودة بالفعل**");
             if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
             message.guild.createChannel("reports", "text").then(c =>{
@@ -4222,8 +4226,8 @@ client.on('message', message=>{
         })
         client.on("message", message => {
             if(message.content.startsWith(prefix + "تقديم")) {
-                            let channel = message.guild.channels.find("name", "التقديمات")
-
+                let channel = message.guild.channels.find("name", "التقديمات")
+		if(!message.channel.guild) return;
                 if(message.author.bot) return;
             if(!channel) return message.reply("**لانشاء روم التقديمات !!setsubmissions من فضلك اكتب الامر**")
             if(channel) {
@@ -4298,8 +4302,9 @@ client.on('message', message=>{
 }
         });
         client.on('message', message=>{
-	    let submissions = client.channels.find("name", "التقديمات");
             if(message.content.startsWith(prefix+"setsubmissions")) {
+		let submissions = client.channels.find("name", "التقديمات");
+		    if(!message.channel.guild) return;
                 if(message.author.bot) return;
 		if(submissions) return message.channel.send("**الروم موجودة بالفعل**");
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
@@ -4314,6 +4319,7 @@ client.on('message', message=>{
             })
         client.on('message',async message => {
             if(message.content.startsWith(prefix + "accept")) {
+	    if(!message.channel.guild) return;
             let mention = message.mentions.members.first();
             let role = message.content.split(" ").slice(2).join(" ");
             let mySupport = message.guild.roles.find('name',role);
@@ -4350,6 +4356,7 @@ client.on('message', message=>{
           });
           client.on('message', message=>{
             if(message.content.startsWith(prefix+"setac")) {
+		 if(!message.channel.guild) return;
 		let acRoom = client.channels.find("name", "القبول-الرفض");
                 if(message.author.bot) return;
 		if(acRoom) return message.channel.send("**الروم موجودة بالفعل**");
