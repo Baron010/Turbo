@@ -4150,11 +4150,11 @@ setInterval(function(){})
 }
 });
 client.on('message', message =>{
-let sug = message.guild.channels.find("name", "suggestions");
 if(message.content.startsWith(prefix+"sug")) {
 var id = message.author.id;
 if (!message.channel.guild) return;
 if (message.author.bot) return;
+let sug = message.guild.channels.find("name", "suggestions");
 if(!sug) return message.channel.send("**لانشاء روم او اطلب من احد اعضاء الادارة !!setsug لايوجد روم اقتراحات من فضلك اكتب**")
 if(sug) {
   let args = message.content.split(" ").slice(1).join(' ');
