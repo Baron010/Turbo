@@ -4170,11 +4170,9 @@ message.guild.channels.find('name', 'suggestions').send(embed);
 }
 });
 client.on('message', message=>{
-    let suge = message.guild.channels.find("name", "reports")
     if(message.content.startsWith(prefix+"setsug")) {
 	 if(!message.channel.guild) return;
  if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
-	if(suge) return message.channel.send("**الروم موجودة بالفعل**");
         message.guild.createChannel("suggestions", "text").then(c =>{
             c.overwritePermissions(message.guild.id, {
                 SEND_MESSAGES: false
@@ -4302,12 +4300,9 @@ client.on('message', message=>{
 }
         });
         client.on('message', message=>{
-		let submissions = client.channels.find("name", "التقديمات");
             if(message.content.startsWith(prefix+"setsubmissions")) {
-		
 		    if(!message.channel.guild) return;
                 if(message.author.bot) return;
-		if(submissions) return message.channel.send("**الروم موجودة بالفعل**");
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
                 message.guild.createChannel("التقديمات", "text").then(c =>{
                     c.overwritePermissions(message.guild.id, {
@@ -4356,11 +4351,9 @@ client.on('message', message=>{
         }
           });
           client.on('message', message=>{
-	    let acRoom = client.channels.find("name", "القبول-الرفض");
             if(message.content.startsWith(prefix+"setac")) {
 		 if(!message.channel.guild) return;
                 if(message.author.bot) return;
-		if(acRoom) return message.channel.send("**الروم موجودة بالفعل**");
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
                 message.guild.createChannel("القبول-الرفض", "text").then(c =>{
                     c.overwritePermissions(message.guild.id, {
