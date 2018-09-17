@@ -4178,7 +4178,7 @@ client.on('message', message=>{
 
                   })
         })
-    message.channel.send("✅ تم انشاء روم الاقتراحات بنجاح")
+    message.channel.send("**✅ تم انشاء روم الاقتراحات بنجاح**")
     }
     });
     client.on('message', message =>{
@@ -4213,7 +4213,7 @@ client.on('message', message=>{
 
                       })
             })
-    message.channel.send("✅ تم انشاء روم البلاغات بنجاح")
+    message.channel.send("**✅ تم انشاء روم البلاغات بنجاح**")
         }
         })
         client.on("message", message => {
@@ -4303,7 +4303,7 @@ client.on('message', message=>{
 
                           })
                 })
-    message.channel.send("✅ تم انشاء روم التقديمات بنجاح")
+    message.channel.send("**✅ تم انشاء روم التقديمات بنجاح**")
             }
             })
         client.on('message',async message => {
@@ -4344,6 +4344,7 @@ client.on('message', message=>{
           });
           client.on('message', message=>{
             if(message.content.startsWith(prefix+"setac")) {
+		let acRoom = client.channels.find("name", "القبول-الرفض");
                 if(message.author.bot) return;
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
                 message.guild.createChannel("القبول-الرفض", "text").then(c =>{
@@ -4352,7 +4353,7 @@ client.on('message', message=>{
 
                           })
                 })
-
+    message.channel.send("**✅ تم انشاء روم القبول والرفض بنجاح**")
             }
             })
             client.on('message' , message => {
