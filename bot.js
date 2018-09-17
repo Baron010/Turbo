@@ -4207,8 +4207,8 @@ client.on('message', message=>{
         }
         });
         client.on('message', message=>{
-	let reports = message.guild.channels.find("name", "reports")
         if(message.content.startsWith(prefix+"setreport")) {
+			let reports = message.guild.channels.find("name", "reports")
 	if(!message.channel.guild) return;
 	    if(reports) return message.channel.send("**الروم موجودة بالفعل**");
             if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
