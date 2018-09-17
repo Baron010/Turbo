@@ -436,7 +436,7 @@ return;
 
 });
 client.on('message', msg => {
-    if(!message.channel.guild) return;
+    if(!msg.channel.guild) return;
  if (msg.content.startsWith(prefix + 'cal')) {
     let args = msg.content.split(" ").slice(1);
         const question = args.join(' ');
@@ -627,7 +627,6 @@ client.on('message', message => {
 
 // +say
   if (command === "say") {
-if(!message.channel.guild) return;
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
           message.delete()
     message.channel.sendMessage(args.join(" "))
@@ -636,7 +635,6 @@ if(!message.channel.guild) return;
 
 
 if (command == "embed") {
-if(!message.channel.guild) return;
   if(!message.member.hasPermission('MANAGE_MESSAGES')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `MANAGE_MESSAGES`' );
     let say = new Discord.RichEmbed()
     .setDescription(args.join("  "))
