@@ -5094,4 +5094,90 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
         logChannel.send(voiceLeave);
     }
 });
+client.on("message", message => {
+  let men = message.mentions.users.first();
+  if(message.content.startsWith(prefix + "vkick")) {
+    try {
+    if(!men) {
+      message.channel.send("**الرجاء اخيار شخص لطرده !**");
+      return;
+    }
+    if(!message.guild.member(men).voiceChannel) return message.channel.send("المراد طرده ليس في الغرف الصوتيه!");
+    if(!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send("ليست لديك صلحيات سحب الاعضاء")
+    if(!message.guild.me.hasPermission("MOVE_MEMBERS")) return message.channel.send("ليست لدي الصلاحيه لسحب الاعضاء");
+       if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send("ليست لدي الصلاحيات لانشاء رومات صوتيه")
+
+    message.guild.createChannel("AgentX VKick", "voice").then(c => {
+      message.guild.member(men).setVoiceChannel(c.id)
+    setTimeout(() => {
+      c.delete()
+    }, 100)
+    });
+    message.channel.send(`**لقد تم طرده من الرومات الصوتيه \`\`${men.username}\`\`**`)
+} catch (e) {
+  message.channel.send("لا يمكنني القيام بذلك بسبب الصلاحيات او ما شابه");
+}
+  }
+});
+client.on('message', eyadcodes =>{
+    var eyad = 0;
+    var codes = "!!" , codees = 'inrole';
+if(eyadcodes.content.startsWith(codes + codees)) {
+    const args = eyadcodes.content.split(' ').slice(1).join(' ');
+    const role = eyadcodes.guild.roles.find('name' , args);
+    if(!args) return;
+    if(!role) return eyadcodes.channel.send('**قد يكون أسم الرتبه خطأ او ليست موجوده !!**')
+    let eyadtxt= "";
+     eyadcodes.guild.members.filter(m => m.roles.has(role.id)).forEach(xx => {
+        eyad++;
+        eyadtxt += `\`${eyad}\` - <@${xx.id}> \n`;
+    });
+
+    if(eyadtxt == "") {
+        eyadtxt = "لا يوجد احد في هذه الرتبة";
+    } else {
+        eyadtxt = eyadtxt;
+    };
+
+    eyadcodes.channel.send({embed: new Discord.RichEmbed()
+    .setThumbnail(eyadcodes.author.avatarURL)
+    .setAuthor(eyadcodes.guild.name , eyadcodes.guild.iconURL)
+            .setDescription(`**Users in this role ${role} \n\n${eyadtxt}**`)
+            .setFooter(eyadcodes.guild.name)
+            .setColor('RANDOM')
+            .setTimestamp()
+    })
+}
+})
+hero.on('message',async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === 'dm') return;
+  let args = message.content.split(' ');
+  let tag;
+  if(args[0] === `${prefix}discrim`) {
+    if(args[1]) {
+      let discrim = Array.from(args[1]);
+      if(isNaN(args[1])) return message.channel.send(`- \`${message.author.username}\`, يجب ان تتكون هذه الخانة من ارقام وليس احرف`);
+      if(discrim.length !== 4) return message.channel.send(`- \`${message.author.username}\`, يجب ان يكون التاق مكون من 4 ارقام`);
+
+      tag = discrim.map(r => r.toString()).join('');
+      console.log(tag);
+      if(hero.users.filter(f => f.discriminator === tag).size === 0) return message.channel.send(`- \`${message.author.username}\`, لا يوجد احد بهذا التاق`);
+      let iLD = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setDescription(hero.users.filter(f => f.discriminator === tag).map(r => r.username).slice(0, 10).join('\n'))
+      .setFooter('By: xYouseeF\'₁₁ || Roýale.#0001');
+      message.channel.send(iLD);
+    } else if(!args[1]) {
+      tag = message.author.discriminator;
+      if(hero.users.filter(f => f.discriminator === tag).size === 0) return message.channel.send(`- \`${message.author.username}\`, لا يوجد احد بهذا التاق`);
+      let L4U = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setDescription(hero.users.filter(f => f.discriminator === tag).map(r => r.username).slice(0, 10).join('\n'))
+      .setFooter('! HosaM#5969');
+      message.channel.send(L4U);
+    }
+  }
+});
+
 client.login(process.env.BOT_TOKEN);
