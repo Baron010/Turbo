@@ -697,7 +697,7 @@ if (uinfo.presence.game !== null) {
     } else {
     playing = "Not Playing";
     }
-if(uinfo.presence.status == "Online") {
+if(uinfo.presence.status == "online") {
 var hello = "Online | موجوود";
 } else {
 if(uinfo.presence.status == "dnd") {
