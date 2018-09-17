@@ -4150,9 +4150,9 @@ setInterval(function(){})
 }
 });
 client.on('message', message =>{
+let sug = message.guild.channels.find("name", "suggestions");
 if(message.content.startsWith(prefix+"sug")) {
 var id = message.author.id;
-let sug = message.guild.channels.find("name", "suggestions");
 if (!message.channel.guild) return;
 if (message.author.bot) return;
 if(!sug) return message.channel.send("**لانشاء روم او اطلب من احد اعضاء الادارة !!setsug لايوجد روم اقتراحات من فضلك اكتب**")
@@ -4170,11 +4170,11 @@ message.guild.channels.find('name', 'suggestions').send(embed);
 }
 });
 client.on('message', message=>{
-	let sug = message.guild.channels.find("name", "suggestions")
+	let sug1 = message.guild.channels.find("name", "suggestions")
     if(message.content.startsWith(prefix+"setsug")) {
 	 if(!message.channel.guild) return;
 
-if(sug) return message.channel.send("**الروم موجودة بالفعل**");
+if(sug1) return message.channel.send("**الروم موجودة بالفعل**");
  if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
         message.guild.createChannel("suggestions", "text").then(c =>{
             c.overwritePermissions(message.guild.id, {
