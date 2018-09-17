@@ -4170,12 +4170,11 @@ message.guild.channels.find('name', 'suggestions').send(embed);
 }
 });
 client.on('message', message=>{
-	let sug1 = message.guild.channels.find("name", "suggestions")
+    let suge = message.guild.channels.find("name", "reports")
     if(message.content.startsWith(prefix+"setsug")) {
 	 if(!message.channel.guild) return;
-
-if(sug1) return message.channel.send("**الروم موجودة بالفعل**");
  if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
+	if(suge) return message.channel.send("**الروم موجودة بالفعل**");
         message.guild.createChannel("suggestions", "text").then(c =>{
             c.overwritePermissions(message.guild.id, {
                 SEND_MESSAGES: false
