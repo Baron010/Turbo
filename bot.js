@@ -733,19 +733,27 @@ client.on('message', message => {
 });
 client.on('message', message => {
     if(!message.channel.guild) return;
+    if (message.client.on('message', message => {
+    if(!message.channel.guild) return;
     if (message.content.startsWith(prefix+"avatar")) {
-if(!message.channel.guild) return;
+        var args1 = message.content.split(" ").slice(1).join(" ");
         var mentionned = message.mentions.users.first();
-    var client;
-      if(mentionned){
-          var client = mentionned; } else {
-          var client = message.author;
-      }
-        const embed = new Discord.RichEmbed()
-                           .addField('Requested by:', "<@" + message.author.id + ">")
-        .setColor(000000)
-        .setImage(`${client.avatarURL}`)
-      message.channel.sendEmbed(embed);
+        if(mentionned){
+            var avatar = mentionned.avatarURL;
+            var name = mentionned.tag
+         } else {
+            var avatar = message.guild.members.filter(m=>m.user.username.toUpperCase().includes(args1.toUpperCase())).map(m=> m.user.avatarURL).slice(0,20).join('\n');
+            var name = message.guild.members.filter(m=>m.user.username.toUpperCase().includes(args1.toUpperCase())).map(m=> m.user.tag).slice(0,20).join('\n');
+        }
+
+        let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setTitle(`Open Form Browser`)
+        .setURL(`${avatar}`)
+        .setAuthor(`${name}`, `${avatar}`)
+        .setImage(`${avatar}`)
+        .setFooter(message.author.tag, message.author.avatarURL)
+      message.channel.send(embed);
     }
 });
 const mapping = {
