@@ -754,6 +754,21 @@ client.on('message', message => {
       message.channel.send(embed);
     }
 });
+client.on('message', message => {
+    if (message.content.startsWith(prefix+"avatar")) {
+if(!message.channel.guild) return;
+    var client = message.author;
+        const embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setAuthor(`${client.tag}`, `${client.avatarURL}`)
+        .setTitle(`Open Form Browser`)
+        .setURL(`${client.avatarURL}`)
+        .setImage(`${client.avatarURL}`)
+        .setFooter(message.author.tag, message.author.avatarURL)
+      message.channel.sendEmbed(embed);
+    }
+});
+
 const mapping = {
   ' ': '   ',
   '0': ':zero:',
