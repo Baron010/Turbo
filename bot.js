@@ -755,7 +755,7 @@ client.on('message', message => {
     }
 });
 client.on('message', message => {
-    if (message.content.startsWith(prefix+"avatar")) {
+    if (message.content === "!!avatar") {
 if(!message.channel.guild) return;
     var client = message.author;
         const embed = new Discord.RichEmbed()
@@ -768,7 +768,6 @@ if(!message.channel.guild) return;
       message.channel.sendEmbed(embed);
     }
 });
-
 const mapping = {
   ' ': '   ',
   '0': ':zero:',
