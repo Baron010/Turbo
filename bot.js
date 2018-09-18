@@ -733,8 +733,6 @@ client.on('message', message => {
 });
 client.on('message', message => {
     if(!message.channel.guild) return;
-    if (message.client.on('message', message => {
-    if(!message.channel.guild) return;
     if (message.content.startsWith(prefix+"avatar")) {
         var args1 = message.content.split(" ").slice(1).join(" ");
         var mentionned = message.mentions.users.first();
