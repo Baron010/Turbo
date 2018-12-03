@@ -1319,7 +1319,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "kick") {
+  if (message.content.startsWith(prefix+"kick")) {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
 
   if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
