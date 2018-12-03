@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
-const devs = ['389090790984515594'];
-const premium = ['434446086053036054']
+const devs = ['437892991047434241'];
+const premium = ['513326455833231371']
 const client = new Discord.Client();
 const db = require('quick.db');
 const bot = new Discord.Client();
@@ -28,7 +28,7 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const sql = require("sqlite");
 const dateFormat = require('dateformat');
 const pretty = require('pretty-ms')
-const prefix = '!!';
+const prefix = `<@519053223269498883> `;
 var table = require('table').table
 var ti={}
 ,spee={}
@@ -36,7 +36,7 @@ var ti={}
 
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = [`${client.guilds.size} Server`,'!!help','Type !!help',`${client.users.size} Members`,'!!invite','By: Hosam | BaronTube'];
+    var setGame = [`${client.guilds.size} Server`,'@Zee5#2700 help','Type @Zee5#2700 help',`${client.users.size} Members`,'@Zee5#2700 invite','By: Hosam | BaronTube'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -74,56 +74,56 @@ To see all the bot commands check our website | لرؤية جميع اوامر �
 .`)
 message.author.send(`
 **Public commands | الأوامر العامة**
-『**!!bots **/لعرض جميع البوتات الي بالسيرفر』
-『**!!serverinfo** /يعرض لك معلومات عن السيرفر』
-『**!!botinfo **/يعرض لك كل معلومات البوت』
-『**!!count **/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات』
-『**!!invites **/ يعرض لك  عدد انفايتاتك بالسيرفر 』
-『**للتقديم على رتبة ادارة فى سيرفركم / !!تقديم**』
-『**!!invite-codes **/يعرض لك روابط الانفايتات حكك في السيرفر 』
-『**!!cal **/اله حاسبة』
-『**!!translate <language> <any thing> **/يترجم لك الي تبيه من اي لغة』
-『**!!short **/يختصر لك رابط كبير الى رابط صغير』
-『**!!tag **/يكتب لك الكلمة بشكل جميل وكبير』
-『**!!google **/للبحث في قوقل عن طريق الدسكورد』
-『**!!perms **/يعرض لك برمشناتك بالسيرفر』
-『**!!z5rf **/يزخرف لك كلمة او جملة 』
-『**!!rooms **/يعرض لك كل الرومات الي بالسيرفر مع عددها』
-『**!!emojilist **/يعرض لك كل الايموجيات الي بالسيرفر』
-『**!!say **/يكرر الكلام الي تكتبو』
-『**!!image **/صورة السيرفر』
-『**!!members **/عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص』
-『**!!id **/معلومات عنك』
-『**!!colors **/ لعرض الالوان』
-『**!!color <number> **/ لتعير لونك』
-『**!!bans **/ عدد الاشخاص المبندة 』
-『**!!avatar **/صورتك او صورة الي تمنشنو』
-『**!!emoji <any things> **/لتحويل اي كلمه تقولها الي ايموجي』
-『**!!invite **/لدعوة البوت الى سيرفرك』
-『**!!sug **/ لتقديم اقتراح』
-『**!!report **/ للابلاغ عن مشكله』
-『**!!للتقديم على ادارة او رتبة معينة /** تقديم』
-『**!!support **/سيرفر الدعم』
-『**!!contact **/ارسال اقتراح او لمراسلة صاحب البوت』
+『**@Zee5#2700 bots **/لعرض جميع البوتات الي بالسيرفر』
+『**@Zee5#2700 serverinfo** /يعرض لك معلومات عن السيرفر』
+『**@Zee5#2700 botinfo **/يعرض لك كل معلومات البوت』
+『**@Zee5#2700 count **/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات』
+『**@Zee5#2700 invites **/ يعرض لك  عدد انفايتاتك بالسيرفر 』
+『**للتقديم على رتبة ادارة فى سيرفركم / @Zee5#2700 تقديم**』
+『**@Zee5#2700 invite-codes **/يعرض لك روابط الانفايتات حكك في السيرفر 』
+『**@Zee5#2700 cal **/اله حاسبة』
+『**@Zee5#2700 translate <language> <any thing> **/يترجم لك الي تبيه من اي لغة』
+『**@Zee5#2700 short **/يختصر لك رابط كبير الى رابط صغير』
+『**@Zee5#2700 tag **/يكتب لك الكلمة بشكل جميل وكبير』
+『**@Zee5#2700 google **/للبحث في قوقل عن طريق الدسكورد』
+『**@Zee5#2700 perms **/يعرض لك برمشناتك بالسيرفر』
+『**@Zee5#2700 z5rf **/يزخرف لك كلمة او جملة 』
+『**@Zee5#2700 rooms **/يعرض لك كل الرومات الي بالسيرفر مع عددها』
+『**@Zee5#2700 emojilist **/يعرض لك كل الايموجيات الي بالسيرفر』
+『**@Zee5#2700 say **/يكرر الكلام الي تكتبو』
+『**@Zee5#2700 image **/صورة السيرفر』
+『**@Zee5#2700 members **/عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص』
+『**@Zee5#2700 id **/معلومات عنك』
+『**@Zee5#2700 colors **/ لعرض الالوان』
+『**@Zee5#2700 color <number> **/ لتعير لونك』
+『**@Zee5#2700 bans **/ عدد الاشخاص المبندة 』
+『**@Zee5#2700 avatar **/صورتك او صورة الي تمنشنو』
+『**@Zee5#2700 emoji <any things> **/لتحويل اي كلمه تقولها الي ايموجي』
+『**@Zee5#2700 invite **/لدعوة البوت الى سيرفرك』
+『**@Zee5#2700 sug **/ لتقديم اقتراح』
+『**@Zee5#2700 report **/ للابلاغ عن مشكله』
+『**@Zee5#2700 للتقديم على ادارة او رتبة معينة /** تقديم』
+『**@Zee5#2700 support **/سيرفر الدعم』
+『**@Zee5#2700 contact **/ارسال اقتراح او لمراسلة صاحب البوت』
 `)
 message.author.send(`.
  **Game commands | اوامر الالعاب**
-『**!!rps **/ حجر ورقة مقص』
-『**!!speed **/ اسرع كتابة』
-『**!!quas **/ اسئلة عامة』
-『**!!نكت /** نكت 』
-『**!!لعبة فكك /** فكك』
-『**!!عواصم عشوائي/** عواصم』
-『**!!لعبة كت تويت /** كت تويت』
-『**!!roll <number> **/ قرعة』
-『**!!لو خيروك بطريقة حلوة /** لو خيروك』
-『**!!لعبة مريم /** مريم』
-『**!!فوائد ونصائح  /** هل تعلم』
-『**!!slots **/ للعبة سلوتس』
-『**!!xo <user> <user> **/ للعبة اكس او』
+『**@Zee5#2700 rps **/ حجر ورقة مقص』
+『**@Zee5#2700 speed **/ اسرع كتابة』
+『**@Zee5#2700 quas **/ اسئلة عامة』
+『**@Zee5#2700 نكت /** نكت 』
+『**@Zee5#2700 لعبة فكك /** فكك』
+『**@Zee5#2700 عواصم عشوائي/** عواصم』
+『**@Zee5#2700 لعبة كت تويت /** كت تويت』
+『**@Zee5#2700 roll <number> **/ قرعة』
+『**@Zee5#2700 لو خيروك بطريقة حلوة /** لو خيروك』
+『**@Zee5#2700 لعبة مريم /** مريم』
+『**@Zee5#2700 فوائد ونصائح  /** هل تعلم』
+『**@Zee5#2700 slots **/ للعبة سلوتس』
+『**@Zee5#2700 xo <user> <user> **/ للعبة اكس او』
 『=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.』
 『**welcome** يتم الترحيب فى روم باسم』
-『**!!setwelcomer <text channel name> **لاختيار روم للترحيب』
+『**@Zee5#2700 setwelcomer <text channel name> **لاختيار روم للترحيب』
 `)
     }
 })
@@ -755,7 +755,7 @@ client.on('message', message => {
     }
 });
 client.on('message', message => {
-    if (message.content === "!!avatar") {
+    if (message.content.startsWith(prefix + "avatar")) {
 if(!message.channel.guild) return;
     var client = message.author;
         const embed = new Discord.RichEmbed()
@@ -1519,7 +1519,7 @@ msg.channel.send(embed).then(() => {
          const sh = new Discord.RichEmbed()
 .setColor("04791c")
 .setDescription('**✅ |Good Job +1P**')
-.addField('Type !!mypoints', 'To Show ur Points' , true)
+.addField('Type @Zee5#2700 mypoints', 'To Show ur Points' , true)
 .setFooter(collected.first().author.username, collected.first().author.username.avatarURL)
 message.channel.sendEmbed(sh);
         let won = collected.first().author;
@@ -1957,7 +1957,7 @@ if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
   if(!message.guild) return;
-    let id = message.author.id,prefix="!!";
+    let id = message.author.id,prefix=`<@client.user.id> `;
     if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
         let r = (new Date).getTime() - spee[id];
         r = 15*1000 - r;
@@ -1992,7 +1992,7 @@ msg.channel.send(embed).then(() => {
                   const sh = new Discord.RichEmbed()
   .setColor("04791c")
 .setDescription('**✅ |Good Job +1P**')
-.addField('Type !!mypoints', 'To Show ur Points' , true)
+.addField('Type @Zee5#2700 mypoints', 'To Show ur Points' , true)
 .setFooter(collected.first().author.username, collected.first().author.username.avatarURL)
 message.channel.sendEmbed(sh);
             let won = collected.first().author; // في هذا السطر يقوم الكود بسحب الأي دي الذي قام بالأجابة اولاً
@@ -2171,7 +2171,7 @@ if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
   if(!message.guild) return;
-    let id = message.author.id,prefix="!!";
+    let id = message.author.id,prefix=`<@client.user.id> `;
     if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
         let r = (new Date).getTime() - spee[id];
         r = 15*1000 - r;
@@ -2349,7 +2349,7 @@ if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
   if(!message.guild) return;
-    let id = message.author.id,prefix="!!";
+    let id = message.author.id,prefix=`<@client.user.id> `;
     if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
         let r = (new Date).getTime() - spee[id];
         r = 15*1000 - r;
@@ -2490,7 +2490,7 @@ var al7arthyCodes2 = ["📙__60%__  **|**  📘__40%__","📙__63%__  **|**  �
 client.on('message', message => {
     if(!message.guild) return;
     if (message.author.bot) return;
-      let id = message.author.id,prefix="!!";//البريفكس
+      let id = message.author.id,prefix=`<@client.user.id> `;//البريفكس
       if (ti[id] && (new Date).getTime() - ti[id] < 20*1000) {
           let r = (new Date).getTime() - ti[id];
           r = 20*1000 - r;
@@ -3981,7 +3981,7 @@ client.on('message', message => {
 	});
 	client.on('message', message => {
     let args = message.content.split(' ').slice(1);
-if(message.content.split(' ')[0] == '!!color'){
+if(message.content.split(' ')[0] ==prefix + 'color'){
      const embedd = new Discord.RichEmbed()
 .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 .setDescription(`**There's No Color With This Number لازم ان تختار رقم ملحوظة لازم تكون منزل الالوان** ❌ `)
@@ -4055,7 +4055,7 @@ client.on('message', message=>{
 
         if (!message.channel.guild) return;
         if (message.author.bot) return;
-        if(!report) return message.channel.send("**لانشاء روم او اطلب من احد اعضاء الادارة !!setreport لايوجد روم اقتراحات من فضلك اكتب**")
+        if(!report) return message.channel.send("**لانشاء روم او اطلب من احد اعضاء الادارة @Zee5#2700 setreport لايوجد روم اقتراحات من فضلك اكتب**")
         if(report) {
           let args = message.content.split(" ").slice(1).join(' ');
           if(!args) return message.reply('من فضلك اكتب بلاغك بالتفصيل بعد الامر')
@@ -4091,7 +4091,7 @@ client.on('message', message=>{
 		if(!message.channel.guild) return;
                 if(message.author.bot) return;
 	    let channel = message.guild.channels.find("name", "التقديمات")
-            if(!channel) return message.reply("**لانشاء روم التقديمات !!setsubmissions من فضلك اكتب الامر**")
+            if(!channel) return message.reply("**لانشاء روم التقديمات @Zee5#2700 setsubmissions من فضلك اكتب الامر**")
             if(channel) {
             message.channel.send( message.member + ', **:timer:**').then( (m) =>{
               m.edit( message.member + ', **اسمك الحقيقى بالكامل ✍**' )
@@ -4183,7 +4183,7 @@ client.on('message', message=>{
   let mySupport = message.guild.roles.find('name',role);
   if(message.content.startsWith(prefix + "accept")) {
     let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
-    if(!acRoom) return message.reply("!!setac من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
+    if(!acRoom) return message.reply("@Zee5#2700 setac من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
     if(acRoom) {
     if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
     if(!mention) return message.reply('منشن شخص');
@@ -4202,7 +4202,7 @@ client.on('message',async message => {
   if(message.content.startsWith(prefix + "refuse")) {
   if(!message.channel.guild) return;
   let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
-  if(!acRoom) return message.reply("!!setac من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
+  if(!acRoom) return message.reply("@Zee5#2700 setac من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
   if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
   if(!mention) return message.reply("منشن شخص");
  
